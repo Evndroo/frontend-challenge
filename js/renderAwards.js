@@ -1,16 +1,18 @@
-function getAwardsFromAPI(){
-    let awards = [];
-    fetch("https://br.ongame.net/api/challenge/items/", { method: "GET" }).then((response)=>{
-        response.text().then((result)=>{
+var awards = [];
+getAwardsFromAPI();
+
+function getAwardsFromAPI() {
+    fetch("https://br.ongame.net/api/challenge/items/", { method: "GET" }).then((response) => {
+        response.text().then((result) => {
             awards = JSON.parse(result);
-            awards.forEach((award)=>{
+            awards.forEach((award) => {
                 addAward(award);
             })
         });
     });
 }
 
-function addAward(award){
+function addAward(award) {
     const ul = document.querySelector("ul.award-list");
 
     let li = document.createElement("li");
@@ -27,7 +29,7 @@ function addAward(award){
         <button class="award-item-button" disabled > Resgatar </button>
     `;
 
-    if(award.redeemed){
+    if (award.redeemed) {
         // No progress Bar and rescued award text
         progressBar = "";
         button = `
@@ -37,16 +39,16 @@ function addAward(award){
             </p>
         `;
     }
-    else if(award.percentage === 100){
+    else if (award.percentage === 100) {
         // Complete progress bar and enable button
         progressBar = `
             <div class="award-item_progress-bar">
                 <div class="award-item_progress complete-progress">
             </div>
         `;
-        
+
         button = `
-            <button class="award-item-button"> Resgatar </button>
+            <button class="award-item-button" onclick="openModal(${award.id})"> Resgatar </button>
         `;
     }
 
@@ -65,4 +67,23 @@ function addAward(award){
 
 }
 
-getAwardsFromAPI();
+function openModal(id) {
+    const award = awards.find((award) => award.id === id);
+    const sure = confirm("Deseja mesmo resgatar esta premiação?");
+    if (sure) {
+        rescueAward(id)
+    }
+}
+
+function rescueAward(id) {
+    const reqBody = { "item_id": id };
+
+    fetch('https://api.github.com/gists', {
+        method: 'post',
+        body: JSON.stringify(reqBody)
+    }).then(function (response) {
+        response.text().then(result=>{
+            // Do somethig with the result of of the API here
+        });
+    })
+}

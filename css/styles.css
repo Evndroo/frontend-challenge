@@ -6,6 +6,10 @@
     outline: 0;
 }
 
+title{
+    display: none;
+}
+
 body {
     background: url(../assets/metin2-background.jpg);
     height: 100vh;
