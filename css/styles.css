@@ -24,14 +24,15 @@ body {
 
 .container {
     width: 50%;
+    min-width: 375px;
     max-width: 1200px;
+    padding: 1rem;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(0,0,0, 0.5);
     border: 2px solid black;
-    padding: 1rem;
+    background: rgba(0,0,0, 0.5);
 }
 
 .container > h2 {
@@ -112,4 +113,11 @@ body {
 .complete-progress{
     width: 100%;
     background: rgb(217,24,34);
+}
+
+
+@media (max-width: 600px){
+    .container{
+        width: 100%;
+    }
 }
