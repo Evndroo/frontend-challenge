@@ -24,7 +24,7 @@ body {
 
 .container {
     width: 50%;
-    min-width: 375px;
+    min-width: 600px;
     max-width: 1200px;
     padding: 1rem;
     margin: 0 auto;
@@ -119,5 +119,6 @@ body {
 @media (max-width: 600px){
     .container{
         width: 100%;
+        min-width: 375px;
     }
 }
