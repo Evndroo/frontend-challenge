@@ -1,3 +1,11 @@
+*{
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
 body {
     background: url(../assets/metin2-background.jpg);
     height: 100vh;
@@ -19,5 +27,85 @@ body {
     align-items: center;
     background: rgba(0,0,0, 0.5);
     border: 2px solid black;
-    padding: 1.5rem;
+    padding: 1rem;
+}
+
+.container > h2 {
+    margin: 1em 0;
+}
+
+.award-list{
+    list-style: none;
+    width: 100%;
+}
+
+.award-item {
+    width: 100%;
+    text-align: left;
+    height: 50px;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.award-item:last-child{
+    margin-bottom: 0;
+}
+
+.award-item_content{
+    margin-left: 1em;
+    padding: 5px 0;
+    flex-grow: 1;
+}
+
+.award-item_name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.award-item_name > p{
+    display: inherit;
+    align-items: center;
+}
+
+.checked-icon{
+    width: 15px;
+    margin-right: 3px;
+}
+
+.award-item-button{
+    color: rgb(217,24,34);
+    padding: 3px 15px;
+    border: 1px solid rgb(217,24,34);
+    background:rgba(217,24,34,0.3);
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.award-item-button:hover{
+    background-color: rgb(217,24,34);
+    color: #bbb;
+}
+
+.award-item-button:disabled{
+    cursor: auto;
+    background: transparent;
+    color: gray;
+    border-color: gray;
+}
+
+.award-item_progress-bar{
+    height: 0.7em;
+    border: 1px solid rgb(103, 50, 50);
+    margin-top: 5px;
+}
+
+.award-item_progress{
+    height: 100%;
+    background-color: rgb(69, 32, 32);
+}
+
+.complete-progress{
+    width: 100%;
+    background: rgb(217,24,34);
 }
