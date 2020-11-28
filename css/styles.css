@@ -106,12 +106,14 @@ body {
 }
 
 .award-item_progress{
+    width: 0px;
     height: 100%;
     background-color: rgb(69, 32, 32);
+    transition: width 0.8s;
+    transition-timing-function: ease-in-out;
 }
 
 .complete-progress{
-    width: 100%;
     background: rgb(217,24,34);
 }
 
@@ -162,7 +164,7 @@ body {
     transition: display 1.5s;
     min-width: 0px;
     visibility: hidden;
-    /*animation: open-modal 0.5s ease-in 0s 1 normal forwards;*/
+    /*added by JS: animation: open-modal 0.5s ease-in 0s 1 normal forwards;*/
 }
 
 .modal-title{

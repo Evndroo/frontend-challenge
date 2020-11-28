@@ -1,13 +1,21 @@
 var awards = [];
 getAwardsFromAPI();
 
+
+
 function getAwardsFromAPI() {
     fetch("https://br.ongame.net/api/challenge/items/", { method: "GET" }).then((response) => {
         response.text().then((result) => {
             awards = JSON.parse(result);
             awards.forEach((award) => {
                 addAward(award);
+                setTimeout(function(){
+                    if(!award.redeemed){
+                        document.querySelector(`#award-${award.id}-progress`).style.width = award.percentage+"%";
+                    }
+                },500)
             })
+
         });
     });
 }
@@ -16,12 +24,13 @@ function addAward(award) {
     const ul = document.querySelector("ul.award-list");
 
     let li = document.createElement("li");
+    li.id = "award-"+award.id;
     li.classList = ["award-item"];
 
     // Default: incomplete progress bar and disabled button
     let progressBar = `
         <div class="award-item_progress-bar" >
-            <div class="award-item_progress" style="width: ${award.percentage}%;"></div>
+            <div id="award-${award.id}-progress" class="award-item_progress"></div>
         </div>
     `;
 
@@ -43,7 +52,7 @@ function addAward(award) {
         // Complete progress bar and enable button
         progressBar = `
             <div class="award-item_progress-bar">
-                <div class="award-item_progress complete-progress">
+                <div id="award-${award.id}-progress" class="award-item_progress complete-progress">
             </div>
         `;
 
@@ -64,7 +73,7 @@ function addAward(award) {
     `;
 
     ul.append(li);
-
+    
 }
 
 function openModal(id) {
