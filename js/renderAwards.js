@@ -69,10 +69,21 @@ function addAward(award) {
 
 function openModal(id) {
     const award = awards.find((award) => award.id === id);
-    const sure = confirm("Deseja mesmo resgatar esta premiação?");
-    if (sure) {
-        rescueAward(id)
-    }
+    const modal = document.querySelector(".modal");
+    // showing modal
+    document.querySelector(".modal-background").style.display = "flex";
+    modal.style.animation = "open-modal 0.5s ease-in 0s 1 normal forwards";
+
+    const buttonList = modal.children[modal.children.length-1];
+    
+    const positiveButton = buttonList.children[0];
+    const negativeButton = buttonList.children[1];
+
+    positiveButton.addEventListener("click", function(event){
+        rescueAward(id);
+    });
+
+    negativeButton.addEventListener("click", closeModal)
 }
 
 function rescueAward(id) {
@@ -84,6 +95,16 @@ function rescueAward(id) {
     }).then(function (response) {
         response.text().then(result=>{
             // Do somethig with the result of of the API here
+            
         });
     })
+    closeModal();
+}
+
+function closeModal(){
+    document.querySelector(".modal-background").style.display = "none";
+
+    const modal = document.querySelector(".modal");
+    
+    modal.style.animation = "close-modal 0.5s ease-in 0s 1 normal forwards";
 }

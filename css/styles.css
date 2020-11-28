@@ -115,6 +115,95 @@ body {
     background: rgb(217,24,34);
 }
 
+.modal-background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+@keyframes open-modal{
+    from{
+        min-width: 0px;
+        width: 0px;
+        visibility: hidden;
+    }
+    to{
+        min-width: 375px;
+        visibility: visible;
+    }
+}
+
+@keyframes close-modal{
+    from{
+        min-width: 375px;
+        visibility: visible;
+    }
+    to{
+        min-width: 0px;
+        width: 0px;
+        visibility: hidden;
+    }
+}
+
+.modal{
+    padding: 1.5rem;
+    background-color: #212121;
+    border-bottom: 3px solid rgb(217,24,34);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: display 1.5s;
+    min-width: 0px;
+    visibility: hidden;
+    /*animation: open-modal 0.5s ease-in 0s 1 normal forwards;*/
+}
+
+.modal-title{
+    text-align: center;
+    color: rgb(217,24,34);
+    font-size: 25px;
+}
+
+.modaal-award_name{
+    font-size: 18px;
+}
+
+.modal-award_logo{
+    width: 65px;
+}
+
+.modal-award_logo, .modaal-award_name, .modal-title{
+    margin-bottom: 1.5em;
+}
+
+.modal-button-list{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.modal-button{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+
+.positive-button{
+    background-color: rgb(217,24,34);
+}
+
+.negative-button{
+    background-color: gray;
+    margin-left: 1em;
+}
 
 @media (max-width: 600px){
     .container{
