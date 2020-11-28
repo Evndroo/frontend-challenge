@@ -1,5 +1,14 @@
 # Ongame Front End Challenge
 
+Here you can see a video of the UI interaction and his animations:
+
+![gif](./assets/UI.gif)
+
+___
+
+# Challenge description
+___
+
 ## Hello
 This is the Ongame front-end challenge. It is a generic example of what your daily life will be like.
 

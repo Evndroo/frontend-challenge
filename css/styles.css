@@ -196,6 +196,7 @@ body {
     border-radius: 10px;
     color: white;
     border: none;
+    cursor: pointer;
 }
 
 .positive-button{

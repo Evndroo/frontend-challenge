@@ -83,10 +83,15 @@ function openModal(id) {
     document.querySelector(".modal-background").style.display = "flex";
     modal.style.animation = "open-modal 0.5s ease-in 0s 1 normal forwards";
 
+
+    modal.children[1].src = award.image;
+    modal.children[2].innerText = award.name;
+
     const buttonList = modal.children[modal.children.length-1];
     
     const positiveButton = buttonList.children[0];
     const negativeButton = buttonList.children[1];
+
 
     positiveButton.addEventListener("click", function(event){
         rescueAward(id);
